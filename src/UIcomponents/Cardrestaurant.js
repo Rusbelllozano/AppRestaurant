@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View,Image,TouchableOpacity} from 'react-native';
+import {withNavigation} from 'react-navigation';
 class CardRestaurant extends Component {
+  constructor(props){
+    super(props);
+  }
+  gotorestaurant(){
+    this.props.navigation.navigate('menusrestaurante')
+  }
   render() {
     let uriMainImg='https://images.vexels.com/media/users/3/124949/raw/47ac0f77cc09c591436b80b65dc55de6-burger-fast-food-logo-template.jpg'
     let RestaurantInfo={
@@ -9,7 +16,7 @@ class CardRestaurant extends Component {
         RangoPrecios:"$5000 - $30000"
     }
     return (
-        <TouchableOpacity style={styles.containInfo}>
+        <TouchableOpacity style={styles.containInfo} onPress={(()=> this.gotorestaurant())}>  
             <Image style={styles.mainImgRestaurant}  
             source={{uri: uriMainImg }}/>
             <View  style={{flexDirection:'column'}}>
@@ -44,7 +51,7 @@ const styles = StyleSheet.create({
         color:'rgb(0,0,0)'
     }
   });
-export default CardRestaurant;
+export default withNavigation(CardRestaurant);
 
 
 // return <View style={{

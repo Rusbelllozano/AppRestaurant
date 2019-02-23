@@ -8,6 +8,10 @@ class CardPromotions extends Component {
       dataSource: null,
     }
   }
+  passpage(){
+    this.props.navigation.navigate('restaurantes')
+    alert("Prueba")
+  }
   componentDidMount() {
     return fetch('https://facebook.github.io/react-native/movies.json')
       .then((response) => response.json())
@@ -27,7 +31,7 @@ class CardPromotions extends Component {
       horizontal
         data={this.state.dataSource}
         renderItem={({item}) => 
-        <TouchableOpacity style={{justifyContent:'space-between', marginLeft:10 }}>
+        <TouchableOpacity  onPress={(()=>this.passpage())} style={{justifyContent:'space-between', marginLeft:10 }}>
          <Image style={styles.imgpromotion}  
           source={{uri:'http://afindemes.republica.com/files/2013/04/promocion-el-corte-ingles.jpg' }}/>
         </TouchableOpacity>
