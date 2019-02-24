@@ -42,7 +42,8 @@ class CardPromotions extends Component {
   }
 }
 const styles = StyleSheet.create({
-  imgpromotion:{width:150,
+  imgpromotion:{
+    width:150,
     height:100,
     resizeMode: 'contain', 
     borderRadius:10,

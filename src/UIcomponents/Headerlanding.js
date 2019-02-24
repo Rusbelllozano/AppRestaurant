@@ -10,12 +10,14 @@ import {StyleSheet, Text, View,TextInput} from 'react-native';
   render() {
     return (
         <View style={styles.header}>
+        <View style={{marginHorizontal:10}}>  
         <Text style={styles.title}>Restaurantes</Text>
         <TextInput
         style={styles.inputsearch}
         onChangeText={(text) => this.setState({text})}
         value={this.state.text}
       />
+      </View>
         </View>
     );
   }
@@ -26,7 +28,8 @@ const styles = StyleSheet.create({
         width: 100+'%',
         backgroundColor:'#b5afaf14',
         justifyContent:'center',
-        marginHorizontal: 10
+        borderBottomColor:'#a3a1a199',
+        borderBottomWidth:.5
     },
     title:{
         fontSize: 25,
