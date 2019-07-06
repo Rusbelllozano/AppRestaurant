@@ -3,6 +3,8 @@ import {StyleSheet, Text, View,FlatList} from 'react-native';
 import CardRestaurant from './Cardrestaurant.js';
 import HeaderLanding from './Headerlanding.js';
 import CardPromotions from './Cardpromotions.js'
+
+import { Container, Header, Title, Content, Button, Left, Right, Body, Icon,Tab, Tabs } from 'native-base';
 // import gql from 'graphql-tag';
 // import { graphql } from 'react-apollo';
 
@@ -51,12 +53,23 @@ constructor(props){
       return <View style={{flex:1, justifyContent:'center'}}><Text>CARGANDO</Text></View>
     }else{
       return (
-        <View style={styles.container}>
-          <View style={{ paddingTop:20, height:50}}>
-            <Text>
-              Aqui va el backbutton
-            </Text>
-          </View>
+        <Tabs tabBarPosition="bottom">
+          <Tab heading="Inicio">
+          
+          <Container>
+        <Header>
+          <Left>
+            <Button transparent>
+              <Icon name='menu' />
+            </Button>
+          </Left>
+          <Body>
+            <Title>AppRestaurant</Title>
+          </Body>
+          <Right />
+        </Header>
+        <Content>
+          <View style={styles.container}>
           <HeaderLanding/>
           <Text>Promociones</Text>
           <View style={{ paddingTop:15, height:130}}>
@@ -70,6 +83,20 @@ constructor(props){
             />
           </View>
         </View>
+
+        </Content>
+        
+      </Container>
+          </Tab>
+          <Tab heading="Tab2">
+            {/* <Tab2 /> */}
+          </Tab>
+          <Tab heading="Tab3">
+            {/* <Tab3 /> */}
+          </Tab>
+        </Tabs>
+        
+        
     );
   }
   }

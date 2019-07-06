@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View,TextInput} from 'react-native';
+import {Alert, StyleSheet, Text, View,TextInput} from 'react-native';
+import { Button } from 'native-base';
  class HeaderLanding extends Component {
     constructor(props){
         super(props);
         this.state ={
-          text:'Buscar productos y restaurantes'
+          text:''
         }
       }
   render() {
@@ -12,11 +13,17 @@ import {StyleSheet, Text, View,TextInput} from 'react-native';
         <View style={styles.header}>
         <View style={{marginHorizontal:10}}>  
         <Text style={styles.title}>Restaurantes</Text>
-        <TextInput
-        style={styles.inputsearch}
-        onChangeText={(text) => this.setState({text})}
-        value={this.state.text}
-      />
+        <View style={styles.search}>
+          <TextInput
+            placeholder="Busca un restaurante"
+            style={styles.inputsearch}
+            onChangeText={(text) => this.setState({text})}
+            value={this.state.text}
+          /> 
+          <Button style={styles.buttonsearch} onPress={() => {Alert.alert(this.state.text);}} >
+              <Text>Buscar</Text>
+          </Button>
+        </View>
       </View>
         </View>
     );
@@ -24,6 +31,16 @@ import {StyleSheet, Text, View,TextInput} from 'react-native';
 }
 
 const styles = StyleSheet.create({
+    search:{
+      flex:1,
+      flexDirection:'row',
+      borderColor: 'gray', 
+        borderWidth: .5, 
+        borderRadius:5,
+        height: 45,
+        marginBottom:5,
+
+    },
     header:{
         width: 100+'%',
         backgroundColor:'#b5afaf14',
@@ -36,13 +53,14 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         color:'rgb(0,0,0)'
     },
+    buttonsearch:{
+      width:20+'%',
+      height:100+'%',
+      justifyContent:'center',
+    },
     inputsearch:{
-        marginBottom:5,
-        height: 45,
-        width:90+'%', 
-        borderColor: 'gray', 
-        borderWidth: .5, 
-        borderRadius:5
+      padding:10,
+        width:80+'%', 
     }
 })
 export default HeaderLanding;
